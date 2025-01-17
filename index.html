@@ -30,6 +30,9 @@
             background-clip: padding-box;
             box-sizing: border-box;
             box-shadow: 0 0 35px rgba(0, 0, 0, 0.1);
+            background-image: 
+                radial-gradient(circle at 0 0, rgba(255, 215, 0, 0.05) 0%, transparent 60%),
+                radial-gradient(circle at 100% 100%, rgba(70, 130, 180, 0.05) 0%, transparent 60%);
         }
         .certificate::before {
             content: '';
@@ -39,7 +42,37 @@
             bottom: -15px;
             left: -15px;
             z-index: -1;
-            background: linear-gradient(45deg, #1a1a1a, #333);
+            background: linear-gradient(45deg, #1e3c72, #2a5298);
+        }
+        .corner-decoration {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            pointer-events: none;
+        }
+        .top-left {
+            top: 20px;
+            left: 20px;
+            border-top: 3px solid #1e3c72;
+            border-left: 3px solid #1e3c72;
+        }
+        .top-right {
+            top: 20px;
+            right: 20px;
+            border-top: 3px solid #1e3c72;
+            border-right: 3px solid #1e3c72;
+        }
+        .bottom-left {
+            bottom: 20px;
+            left: 20px;
+            border-bottom: 3px solid #1e3c72;
+            border-left: 3px solid #1e3c72;
+        }
+        .bottom-right {
+            bottom: 20px;
+            right: 20px;
+            border-bottom: 3px solid #1e3c72;
+            border-right: 3px solid #1e3c72;
         }
         .header {
             font-family: 'Arial', sans-serif;
@@ -61,21 +94,26 @@
             left: 25%;
             width: 50%;
             height: 2px;
-            background: linear-gradient(90deg, transparent, #000, transparent);
+            background: linear-gradient(90deg, transparent, #1e3c72, transparent);
         }
         .header::before { top: 0; }
         .header::after { bottom: 0; }
         .header-number {
             font-size: 0.9em;
             margin-right: 15px;
-            color: #333;
+            color: #1e3c72;
             font-weight: 700;
-            border-right: 2px solid #333;
+            border-right: 2px solid #1e3c72;
             padding-right: 15px;
         }
         .company-name {
             margin-left: 15px;
             position: relative;
+            background: linear-gradient(45deg, #1e3c72, #2a5298);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
         }
         .header-accent {
             color: #666;
@@ -87,15 +125,27 @@
         .certificate h1 {
             font-size: 2em;
             margin: 25px 0;
-            color: #1a1a1a;
+            color: #1e3c72;
             text-transform: uppercase;
             letter-spacing: 3px;
             font-weight: 600;
+            position: relative;
+            display: inline-block;
+        }
+        .certificate h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #1e3c72, transparent);
         }
         .certificate h2 {
             font-size: 1.4em;
             margin: 12px 0;
-            color: #333;
+            color: #2a5298;
             font-weight: 500;
         }
         .certificate p {
@@ -121,13 +171,22 @@
         }
         .signature-line {
             margin-top: 40px;
-            border-top: 2px solid #000;
+            border-top: 2px solid #1e3c72;
             width: 100%;
             position: relative;
         }
+        .signature-line::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #2a5298, transparent);
+        }
         input {
             border: none;
-            border-bottom: 2px solid #333;
+            border-bottom: 2px solid #1e3c72;
             text-align: center;
             font-size: 1.2em;
             background: transparent;
@@ -136,8 +195,8 @@
         }
         input:focus {
             outline: none;
-            border-bottom-color: #000;
-            background: rgba(0,0,0,0.02);
+            border-bottom-color: #2a5298;
+            background: rgba(42, 82, 152, 0.02);
         }
         .name-input {
             width: 300px;
@@ -150,7 +209,7 @@
             top: 20px;
             right: 20px;
             padding: 10px 20px;
-            background: linear-gradient(45deg, #1a1a1a, #333);
+            background: linear-gradient(45deg, #1e3c72, #2a5298);
             color: white;
             border: none;
             border-radius: 5px;
@@ -180,6 +239,10 @@
 </head>
 <body>
     <div class="certificate">
+        <div class="corner-decoration top-left"></div>
+        <div class="corner-decoration top-right"></div>
+        <div class="corner-decoration bottom-left"></div>
+        <div class="corner-decoration bottom-right"></div>
         <button class="print-btn" onclick="window.print()">Print Certificate</button>
         <div class="header">
             <span class="header-number">834</span>
