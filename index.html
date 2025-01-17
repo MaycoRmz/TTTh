@@ -1,13 +1,18 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Certificate of Completion</title>
     <style>
+        @page {
+            size: letter portrait;
+            margin: 0;
+        }
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
-            padding: 20px;
+            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -16,28 +21,30 @@
         }
         .certificate {
             position: relative;
-            padding: 40px;
-            width: 800px;
+            padding: 30px;
+            width: 8.5in;
+            height: 11in;
             background: #fff;
             text-align: center;
-            border: 20px solid transparent;
+            border: 15px solid transparent;
             background-clip: padding-box;
+            box-sizing: border-box;
             box-shadow: 0 0 35px rgba(0, 0, 0, 0.1);
         }
         .certificate::before {
             content: '';
             position: absolute;
-            top: -20px;
-            right: -20px;
-            bottom: -20px;
-            left: -20px;
+            top: -15px;
+            right: -15px;
+            bottom: -15px;
+            left: -15px;
             z-index: -1;
             background: linear-gradient(45deg, #1a1a1a, #333);
         }
         .header {
             font-family: 'Arial', sans-serif;
-            font-size: 1.8em;
-            margin-bottom: 40px;
+            font-size: 1.5em;
+            margin-bottom: 30px;
             text-transform: uppercase;
             letter-spacing: 4px;
             color: #1a1a1a;
@@ -78,30 +85,34 @@
             margin-top: 5px;
         }
         .certificate h1 {
-            font-size: 2.4em;
-            margin: 30px 0;
+            font-size: 2em;
+            margin: 25px 0;
             color: #1a1a1a;
             text-transform: uppercase;
             letter-spacing: 3px;
             font-weight: 600;
         }
         .certificate h2 {
-            font-size: 1.6em;
-            margin: 15px 0;
+            font-size: 1.4em;
+            margin: 12px 0;
             color: #333;
             font-weight: 500;
         }
         .certificate p {
-            font-size: 1.3em;
-            margin: 20px 0;
+            font-size: 1.1em;
+            margin: 15px 0;
             color: #444;
             line-height: 1.6;
         }
         .signatures {
-            margin-top: 60px;
+            margin-top: 40px;
             display: flex;
             justify-content: space-around;
             padding: 0 40px;
+            position: absolute;
+            bottom: 60px;
+            left: 0;
+            right: 0;
         }
         .signature {
             text-align: center;
@@ -109,7 +120,7 @@
             margin: 0 30px;
         }
         .signature-line {
-            margin-top: 60px;
+            margin-top: 40px;
             border-top: 2px solid #000;
             width: 100%;
             position: relative;
@@ -118,7 +129,7 @@
             border: none;
             border-bottom: 2px solid #333;
             text-align: center;
-            font-size: 1.3em;
+            font-size: 1.2em;
             background: transparent;
             padding: 5px 10px;
             transition: all 0.3s ease;
@@ -129,22 +140,22 @@
             background: rgba(0,0,0,0.02);
         }
         .name-input {
-            width: 350px;
+            width: 300px;
         }
         .date-input {
-            width: 120px;
+            width: 100px;
         }
         .print-btn {
             position: absolute;
             top: 20px;
             right: 20px;
-            padding: 12px 25px;
+            padding: 10px 20px;
             background: linear-gradient(45deg, #1a1a1a, #333);
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 1em;
+            font-size: 0.9em;
             transition: all 0.3s ease;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
@@ -153,8 +164,16 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
         @media print {
-            body { background: none; }
-            .certificate { box-shadow: none; }
+            body { 
+                background: none;
+                margin: 0;
+                padding: 0;
+            }
+            .certificate { 
+                box-shadow: none;
+                margin: 0;
+                padding: 30px;
+            }
             .print-btn { display: none; }
         }
     </style>
@@ -185,7 +204,7 @@
             </div>
             <div class="signature">
                 <div class="signature-line"></div>
-                <p>Trainer</p>
+                <p>Training Supervisor</p>
             </div>
         </div>
     </div>
